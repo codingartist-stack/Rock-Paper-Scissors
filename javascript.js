@@ -13,9 +13,10 @@ console.log("Welcome to Rock-Paper-Scissors")
 
 //result of the round displayed in console.
 
-let computerChoice
-let playerSelection = `RocK`
-let gameResult
+let computerChoice;
+let playerSelection = prompt(`Type rock, paper, scissors`);
+let gameResult;
+let score = 0;
 
 console.log(`You Choose: ` + playerSelection)
 getComputerChoice();
@@ -79,4 +80,12 @@ function playRound(playerSelection, computerChoice) {
 console.log(gameResult);
 }
 
+function outOfFive(playRound){
+    for (let i = 0; i < 5; i++){
+
+    }
+}
+//out of five
+//if user wins + 1 to score 
+//"you won " + display score + " out of 5"
 
