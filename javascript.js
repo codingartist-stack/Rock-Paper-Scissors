@@ -15,6 +15,11 @@ console.log("Welcome to Rock-Paper-Scissors")
 
 let computerChoice
 let playerSelection = `RocK`
+let gameResult
+
+console.log(`You Choose: ` + playerSelection)
+getComputerChoice();
+playRound(playerSelection, computerChoice);
 
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3) + 1;
@@ -34,13 +39,13 @@ function getComputerChoice() {
     //using swtich - I just wanted to see of I could do it in switch
     switch (randomNumber) {
         case 1: 
-            computerChoice = `Rock`;
+            computerChoice = `rock`;
             break;
         case 2:
-            computerChoice = `Paper`;
+            computerChoice = `paper`;
             break;
         case 3:
-            computerChoice = `Scissors`
+            computerChoice = `scissors`
     }
 
     console.log(`Computer choose: ` + computerChoice);
@@ -51,29 +56,27 @@ function playRound(playerSelection, computerChoice) {
     playerSelection = playerSelection.toLowerCase(); //made playerSelection case-insensitive
 
     if (playerSelection === computerChoice) {
-        console.log(`It's a draw!`)
+        gameResult = `It's a draw!`
     }
-    if (playerSelection === `rock` && computerChoice === `Paper`) {
-        console.log(`You Lose! Paper beats Rock.`)
+    if (playerSelection === `rock` && computerChoice === `paper`) {
+        gameResult = `You Lose! Paper beats Rock.`
     }
-    if (playerSelection === `rock` && computerChoice === `Scissors`) {
-        console.log (`You Win! Rock beats Scissors.`)
+    if (playerSelection === `rock` && computerChoice === `scissors`) {
+        gameResult = `You Win! Rock beats Scissors.`
     }
-    if (playerSelection === `paper` && computerChoice === `Scissors`) {
-        console.log (`You Lose! Scissors beats Paper.`)
+    if (playerSelection === `paper` && computerChoice === `scissors`) {
+        gameResult = `You Lose! Scissors beats Paper.`
     }
-    if (playerSelection === `paper` && computerChoice === `Rock`) {
-        console.log (`You Win! Paper beats Rock.`)
+    if (playerSelection === `paper` && computerChoice === `rock`) {
+        gameResult = `You Win! Paper beats Rock.`
     }
-    if (playerSelection === `scissors` && computerChoice === `Paper`) {
-        console.log (`You Win! Scissors beats paper.`)
+    if (playerSelection === `scissors` && computerChoice === `paper`) {
+        gameResult = `You Win! Scissors beats paper.`
     }
-    if (playerSelection === `scissors` && computerChoice === `Rock`) {
-        console.log (`You Lose! Rock beats Scissors.`)
+    if (playerSelection === `scissors` && computerChoice === `rock`) {
+        gameResult = `You Lose! Rock beats Scissors.`
     }
-
+console.log(gameResult);
 }
 
-console.log(`You Choose: ` + playerSelection)
-getComputerChoice();
-playRound(playerSelection, computerChoice);
+
