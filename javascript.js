@@ -14,7 +14,7 @@ console.log("Welcome to Rock-Paper-Scissors")
 //result of the round displayed in console.
 
 let computerChoice
-let playerSelection
+let playerSelection = `RocK`
 
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3) + 1;
@@ -48,25 +48,27 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerChoice) {
 
+    playerSelection = playerSelection.toLowerCase(); //made playerSelection case-insensitive
+
     if (playerSelection === computerChoice) {
         console.log(`It's a draw!`)
     }
-    if (playerSelection === `Rock` && computerChoice === `Paper`) {
+    if (playerSelection === `rock` && computerChoice === `Paper`) {
         console.log(`You Lose! Paper beats Rock.`)
     }
-    if (playerSelection === `Rock` && computerChoice === `Scissors`) {
+    if (playerSelection === `rock` && computerChoice === `Scissors`) {
         console.log (`You Win! Rock beats Scissors.`)
     }
-    if (playerSelection === `Paper` && computerChoice === `Scissors`) {
+    if (playerSelection === `paper` && computerChoice === `Scissors`) {
         console.log (`You Lose! Scissors beats Paper.`)
     }
-    if (playerSelection === `Paper` && computerChoice === `Rock`) {
+    if (playerSelection === `paper` && computerChoice === `Rock`) {
         console.log (`You Win! Paper beats Rock.`)
     }
-    if (playerSelection === `Scissors` && computerChoice === `Paper`) {
+    if (playerSelection === `scissors` && computerChoice === `Paper`) {
         console.log (`You Win! Scissors beats paper.`)
     }
-    if (playerSelection === `Scissors` && computerChoice === `Rock`) {
+    if (playerSelection === `scissors` && computerChoice === `Rock`) {
         console.log (`You Lose! Rock beats Scissors.`)
     }
 
