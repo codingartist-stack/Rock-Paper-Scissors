@@ -14,13 +14,11 @@ console.log("Welcome to Rock-Paper-Scissors")
 //result of the round displayed in console.
 
 let computerChoice;
-let playerSelection = prompt(`Type rock, paper, scissors`);
+let playerSelection;
 let gameResult;
-let score = 0;
+let playerScore = 0;
 
-console.log(`You Choose: ` + playerSelection)
-getComputerChoice();
-playRound(playerSelection, computerChoice);
+outOfFive()
 
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3) + 1;
@@ -60,30 +58,38 @@ function playRound(playerSelection, computerChoice) {
         gameResult = `It's a draw!`
     }
     if (playerSelection === `rock` && computerChoice === `paper`) {
-        gameResult = `You Lose! Paper beats Rock.`
+        gameResult = `You Lose!`
     }
     if (playerSelection === `rock` && computerChoice === `scissors`) {
-        gameResult = `You Win! Rock beats Scissors.`
+        gameResult = `You Win!`
     }
     if (playerSelection === `paper` && computerChoice === `scissors`) {
-        gameResult = `You Lose! Scissors beats Paper.`
+        gameResult = `You Lose!`
     }
     if (playerSelection === `paper` && computerChoice === `rock`) {
-        gameResult = `You Win! Paper beats Rock.`
+        gameResult = `You Win!`
     }
     if (playerSelection === `scissors` && computerChoice === `paper`) {
-        gameResult = `You Win! Scissors beats paper.`
+        gameResult = `You Win!`
     }
     if (playerSelection === `scissors` && computerChoice === `rock`) {
-        gameResult = `You Lose! Rock beats Scissors.`
+        gameResult = `You Lose!`
     }
 console.log(gameResult);
 }
 
-function outOfFive(playRound){
+function outOfFive(){
     for (let i = 0; i < 5; i++){
-
+        playerSelection = prompt(`Type rock, paper, scissors`);
+        console.log(`You Choose: ` + playerSelection)
+        getComputerChoice();
+        playRound(playerSelection, computerChoice);
+        
+        if (gameResult === `You Win!`) {
+            playerScore++;
+        }
     }
+    console.log(`You Won ` + playerScore + ` out of five.`);
 }
 //out of five
 //if user wins + 1 to score 
