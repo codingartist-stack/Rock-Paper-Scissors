@@ -9,8 +9,23 @@
     
 </head>
 <body>
-    <h2>Rock-Paper-Scissors</h2>
-    <p>Inspect page to see the game in the console</p>
+<div>
+    <h1>Rock-Paper-Scissors</h1>
+    <p>Let's Play out of Five</p>
+
+    <p>Choose:</p> 
+    <button id="rock">rock</button> <button id="paper">paper</button> <button id="scissors">scissors</button>
+
+    <h3>Your Choice: <span id="playerChoice"></span></h3>
+    <h3>Computer Choice: <span id="computer-choice"></span></h3>
+    <h3>Results: <span id="result"></span></h3>
+
+    <h2>Your Score: <span id="displayScore"></span> out of 5 games</h2>
+</div>
+
+<!-- revisting assignment
+create three buttons => add event listener to the buttons for playRound with the correct playerSelection
+add div for displaying results and change all of your console.logs into DOM methods -->
 
     <script src="javascript.js"></script>
 </body>

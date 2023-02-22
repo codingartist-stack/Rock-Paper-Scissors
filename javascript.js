@@ -1,41 +1,39 @@
 console.log("Welcome to Rock-Paper-Scissors")
 
-//Computer choose between rock, paper, or scissors
-//user chooses between rock, paper, or Scissors and make it case-insensitive
+const computerChoiceDisplay = document.getElementById('computer-choice')
+const playerSelectionDisplay = document.getElementById('playerChoice')
+const gameResultDisplay = document.getElementById('result')
+const displayScore = document.getElementById('displayScore')
 
-// if computer choice and user choice match,  it's a draw
-// if computer chooses rock and user chooses paper, User wins
-// if computer chooses rock and user chooses scissors, User loses
-// if computer chooses paper and user chooses scissors, User wins
-// if computer chooses paper and user chooses rock, User loses
-// if computer chooses scissors and user chooses paper, User loses
-// if computer chooses scissors and user chooses rock, User wins
+const possibleChoices = document.querySelectorAll('button')
+let userChoice
+// const playerScore = document.getElementById('displayScore')
 
-//result of the round displayed in console.
-
-let computerChoice;
-let playerSelection;
-let gameResult;
 let playerScore = 0;
 
-outOfFive()
+
+possibleChoices.forEach(possibleChoices => possibleChoices.addEventListener('click', (e) => {
+    userChoice = e.target.id;
+    playerSelectionDisplay.innerHTML = userChoice;
+    getComputerChoice();
+    playRound(userChoice, computerChoice);
+
+}));
+
+function buttonOutofFive() {
+
+    for (i = 0; i < 5; i++) {
+    if (gameResult === `You Win!`) {
+        playerScore++
+    }
+    
+}};
+
+displayScore.innerHTML = playerScore;
+
 
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3) + 1;
-
-        //console.log(randomNumber);
-        //using if
-        //if (randomNumber === 1) {
-            //computerChoice = `Rock`
-        // } 
-        //if (randomNumber === 2) {
-            //computerChoice = `Paper`
-        //}
-        //if (randomNumber === 3) {
-            //computerChoice = `Scissors`
-        //}
-
-    //using swtich - I just wanted to see of I could do it in switch
     switch (randomNumber) {
         case 1: 
             computerChoice = `rock`;
@@ -48,7 +46,8 @@ function getComputerChoice() {
     }
 
     console.log(`Computer choose: ` + computerChoice);
-}
+    computerChoiceDisplay.innerHTML = computerChoice;
+};
 
 function playRound(playerSelection, computerChoice) {
 
@@ -76,11 +75,12 @@ function playRound(playerSelection, computerChoice) {
         gameResult = `You Lose!`
     }
 console.log(gameResult);
+gameResultDisplay.innerHTML = gameResult;
 }
 
 function outOfFive(){
     for (let i = 0; i < 5; i++){
-        playerSelection = prompt(`Type rock, paper, scissors`);
+        // playerSelection = prompt(`Type rock, paper, scissors`);
         console.log(`You Choose: ` + playerSelection)
         getComputerChoice();
         playRound(playerSelection, computerChoice);
@@ -90,8 +90,18 @@ function outOfFive(){
         }
     }
     console.log(`You Won ` + playerScore + ` out of five.`);
+
 }
+
+// outOfFive();  => to play 5 rounds with alert
+
+//ORIGNIAL ASSIGNMENT
 //out of five
 //if user wins + 1 to score 
 //"you won " + display score + " out of 5"
 
+//REVISIT ASSIGNMENT
+//remove logic that plays five rounds
+//create three buttons => add event listener to the buttons for playRound with the correct playerSelection
+//add div for displaying results and change all of your console.logs into DOM methods
+//display the running score out of 5, 
