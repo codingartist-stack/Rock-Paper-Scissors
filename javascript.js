@@ -33,10 +33,10 @@ possibleChoices.forEach(possibleChoices => possibleChoices.addEventListener('cli
         displayComputerScore.innerHTML = computerScore;
 
         if (playerScore === 5) {
-            alert('You WON!!')
+            alert('You WON!! :-D')
         }
         if (computerScore === 5) {
-            alert('You LOST')
+            alert('You LOST :.-(')
         }
 
 }));

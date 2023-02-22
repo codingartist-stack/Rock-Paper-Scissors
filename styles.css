@@ -1,0 +1,30 @@
+body {
+    /* background-color: #6096B4; */
+}
+#RockPaperScissors {
+    background-color: #93BFCF;
+    text-align: center;
+    padding: 2em;
+}
+
+#gameContainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#choose {
+    background-color: #BDCDD6;
+    padding: 1em;
+    width: 25%;
+    border-radius: 10% 25%;
+    box-shadow: 5px 5px 5px #6096B4;
+}
+
+#displayingItems {
+    text-align: left;
+    background-color: #EEE9DA;
+    padding: 1em;
+    width: 25%;
+    border-radius: 10% 25%;
+    box-shadow: 5px 5px 5px #6096B4;
+}
