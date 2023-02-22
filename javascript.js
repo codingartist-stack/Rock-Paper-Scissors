@@ -4,17 +4,20 @@ const computerChoiceDisplay = document.getElementById('computer-choice')
 const playerSelectionDisplay = document.getElementById('playerChoice')
 const gameResultDisplay = document.getElementById('result')
 const displayScore = document.getElementById('displayScore')
+const displayComputerScore = document.getElementById('displayCompScore')
 
 const possibleChoices = document.querySelectorAll('button')
 let userChoice
 // const playerScore = document.getElementById('displayScore')
 
 let playerScore = 0;
+let computerScore = 0;
+let gameResult = ``;
 
 
 possibleChoices.forEach(possibleChoices => possibleChoices.addEventListener('click', (e) => {
 
-    userChoice = e.target.id;
+        userChoice = e.target.id;
         playerSelectionDisplay.innerHTML = userChoice;
         getComputerChoice();
         playRound(userChoice, computerChoice);
@@ -22,10 +25,19 @@ possibleChoices.forEach(possibleChoices => possibleChoices.addEventListener('cli
         if (gameResult === `You Win!`) {
             playerScore++
         }
-        
         displayScore.innerHTML = playerScore;
 
-    
+        if (gameResult === `You Lose!`) {
+            computerScore++
+        }
+        displayComputerScore.innerHTML = computerScore;
+
+        if (playerScore === 5) {
+            alert('You WON!!')
+        }
+        if (computerScore === 5) {
+            alert('You LOST')
+        }
 
 }));
 
@@ -44,7 +56,7 @@ function getComputerChoice() {
             computerChoice = `scissors`
     }
 
-    console.log(`Computer choose: ` + computerChoice);
+    // console.log(`Computer choose: ` + computerChoice);
     computerChoiceDisplay.innerHTML = computerChoice;
 };
 
@@ -73,7 +85,7 @@ function playRound(playerSelection, computerChoice) {
     if (playerSelection === `scissors` && computerChoice === `rock`) {
         gameResult = `You Lose!`
     }
-console.log(gameResult);
+// console.log(gameResult);
 gameResultDisplay.innerHTML = gameResult;
 }
 
