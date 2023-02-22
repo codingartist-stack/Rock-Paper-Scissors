@@ -13,23 +13,22 @@ let playerScore = 0;
 
 
 possibleChoices.forEach(possibleChoices => possibleChoices.addEventListener('click', (e) => {
+
     userChoice = e.target.id;
-    playerSelectionDisplay.innerHTML = userChoice;
-    getComputerChoice();
-    playRound(userChoice, computerChoice);
+        playerSelectionDisplay.innerHTML = userChoice;
+        getComputerChoice();
+        playRound(userChoice, computerChoice);
+
+        if (gameResult === `You Win!`) {
+            playerScore++
+        }
+        
+        displayScore.innerHTML = playerScore;
+
+    
 
 }));
 
-function buttonOutofFive() {
-
-    for (i = 0; i < 5; i++) {
-    if (gameResult === `You Win!`) {
-        playerScore++
-    }
-    
-}};
-
-displayScore.innerHTML = playerScore;
 
 
 function getComputerChoice() {
